@@ -54,3 +54,5 @@ import { isObject } from "object-toolkit";
 
 - Jon (https://github.com/jonschlinkert)
 - Josh (https://github.com/TehShrike/deepmerge)
+
+Copyright. Segun Adebayo
