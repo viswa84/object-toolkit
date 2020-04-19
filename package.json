@@ -12,21 +12,18 @@
     "build": "concurrently yarn:build:*",
     "test": "jest",
     "test:cov": "jest --coverage",
-    "lint": "concurrently yarn:lint:*",
     "version": "yarn build",
     "build:esm": "tsc --module esnext --outDir dist/esm --declaration false",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
     "build:types": "tsc --emitDeclarationOnly --declaration true --declarationDir dist/types",
-    "lint:src": "eslint src --ext .ts,.tsx --config ../../.eslintrc",
-    "lint:types": "tsc --noEmit"
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@types/get-value": "3.0.0",
-    "@types/object-assign": "4.0.30",
+    "deepmerge": "4.2.2",
     "@types/set-value": "2.0.0",
     "get-value": "3.0.1",
     "has-own-deep": "^1.1.0",
-    "object-assign": "4.1.1",
     "set-value": "3.0.2",
     "unset-value": "1.0.0"
   },

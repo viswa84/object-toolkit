@@ -1,7 +1,26 @@
-export function get(object) { }
-export function set(object) { }
-export function merge(object) { }
-export function remove(object) { }
+import getter from "get-value";
+import hasOwn from "has-own-deep";
+import merge from "deepmerge";
+import setter from "set-value";
+import deleter from "unset-value";
+import { resolvePath } from "./utils";
+export function get(object, path, fallback) {
+    var paths = resolvePath(path).join(".");
+    return getter(object, paths, { "default": fallback });
+}
+export function set(object, path, value) {
+    var paths = resolvePath(path).join(".");
+    return setter(object, paths, value);
+}
+export { merge };
+export function remove(object, path) {
+    var paths = resolvePath(path).join(".");
+    return deleter(object, paths);
+}
+export function has(object, path) {
+    var paths = resolvePath(path).join(".");
+    return hasOwn(object, paths);
+}
 export function map(object, fn) {
     var result = {};
     for (var key in object) {
@@ -58,4 +77,10 @@ export function split(object, keys) {
         }
     }
     return [picked, omitted];
+}
+export function keys(object) {
+    return Object.keys(object);
+}
+export function entries(object) {
+    return Object.entries(object);
 }

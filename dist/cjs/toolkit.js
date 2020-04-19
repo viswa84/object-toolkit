@@ -1,13 +1,35 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
-function get(object) { }
+var get_value_1 = __importDefault(require("get-value"));
+var has_own_deep_1 = __importDefault(require("has-own-deep"));
+var deepmerge_1 = __importDefault(require("deepmerge"));
+exports.merge = deepmerge_1["default"];
+var set_value_1 = __importDefault(require("set-value"));
+var unset_value_1 = __importDefault(require("unset-value"));
+var utils_1 = require("./utils");
+function get(object, path, fallback) {
+    var paths = utils_1.resolvePath(path).join(".");
+    return get_value_1["default"](object, paths, { "default": fallback });
+}
 exports.get = get;
-function set(object) { }
+function set(object, path, value) {
+    var paths = utils_1.resolvePath(path).join(".");
+    return set_value_1["default"](object, paths, value);
+}
 exports.set = set;
-function merge(object) { }
-exports.merge = merge;
-function remove(object) { }
+function remove(object, path) {
+    var paths = utils_1.resolvePath(path).join(".");
+    return unset_value_1["default"](object, paths);
+}
 exports.remove = remove;
+function has(object, path) {
+    var paths = utils_1.resolvePath(path).join(".");
+    return has_own_deep_1["default"](object, paths);
+}
+exports.has = has;
 function map(object, fn) {
     var result = {};
     for (var key in object) {
@@ -71,3 +93,11 @@ function split(object, keys) {
     return [picked, omitted];
 }
 exports.split = split;
+function keys(object) {
+    return Object.keys(object);
+}
+exports.keys = keys;
+function entries(object) {
+    return Object.entries(object);
+}
+exports.entries = entries;

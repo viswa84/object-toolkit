@@ -1,6 +1,6 @@
 import getter from "get-value";
 import hasOwn from "has-own-deep";
-import objectAssign from "object-assign";
+import merge from "deepmerge";
 import setter from "set-value";
 import deleter from "unset-value";
 import { Dict, resolvePath } from "./utils";
@@ -15,13 +15,7 @@ export function set<T extends any>(object: T, path: string, value: any): any {
   return setter(object, paths, value);
 }
 
-export function merge(...objects: any[]) {
-  let result: Dict = {};
-  for (const object of objects) {
-    result = objectAssign({}, result, object);
-  }
-  return result;
-}
+export { merge };
 
 export function remove(object: object, path: string) {
   const paths = resolvePath(path).join(".");

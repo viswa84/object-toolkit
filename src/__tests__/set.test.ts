@@ -14,7 +14,6 @@ test("should create a nested property if it does not already exist", function ()
 test("should extend an array", function () {
   const o: any = { a: [] };
   set(o, "a[0]", { y: "z" });
-  console.log(o);
   expect(Array.isArray(o.a)).toBeTruthy();
   expect(o.a[0]).toEqual({ y: "z" });
 });
