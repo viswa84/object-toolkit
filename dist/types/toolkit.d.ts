@@ -1,0 +1,14 @@
+import { Dict } from "./utils";
+export declare function get<T extends Dict>(object: T): void;
+export declare function set<T extends Dict>(object: T): void;
+export declare function merge<T extends Dict>(object: T): void;
+export declare function remove<T extends Dict>(object: T): void;
+export declare type MapInterator<T> = (value: any, key: string, object: T) => void;
+export declare function map<T extends Dict>(object: T, fn: MapInterator<T>): Record<string, any>;
+export declare type ForEachInterator<T> = (value: any, key: string, object: T) => void;
+export declare function forEach<T extends Dict>(object: T, fn: ForEachInterator<T>): void;
+export declare type FilterInterator<T> = (value: any, key: string, object: T) => boolean;
+export declare function filter<T extends Dict>(object: T, fn: FilterInterator<T>): Record<string, any>;
+export declare function omit<T extends Dict, K extends keyof T>(object: T, keys: K[]): Pick<T, Exclude<keyof T, K>>;
+export declare function pick<T extends Dict, K extends keyof T>(object: T, keys: K[]): { [P in K]: T[P]; };
+export declare function split<T extends Dict, K extends keyof T>(object: T, keys: K[]): [{ [P in K]: T[P]; }, Pick<T, Exclude<keyof T, K>>];

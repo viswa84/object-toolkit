@@ -1,0 +1,35 @@
+{
+  "name": "object-toolkit",
+  "version": "1.0.0",
+  "main": "dist/cjs",
+  "module": "dist/esm",
+  "types": "dist/types",
+  "typings": "dist/types",
+  "author": "Segun Adebayo",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "concurrently yarn:build:*",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "lint": "concurrently yarn:lint:*",
+    "version": "yarn build",
+    "build:esm": "tsc --module esnext --outDir dist/esm --declaration false",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
+    "build:types": "tsc --emitDeclarationOnly --declaration true --declarationDir dist/types",
+    "lint:src": "eslint src --ext .ts,.tsx --config ../../.eslintrc",
+    "lint:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "object-assign": "4.1.1",
+    "@types/object-assign": "4.0.30"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3",
+    "ts-jest": "25.3.1",
+    "@types/jest": "22.2.3",
+    "jest": "25.2.7",
+    "eslint": "6.8.0",
+    "concurrently": "5.1.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "lib": ["es6", "dom", "es2017"],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    // "sourceMap": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "outDir": "dist/esm"
+  },
+  "include": ["src"]
+}
