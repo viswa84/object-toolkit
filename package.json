@@ -28,7 +28,8 @@
     "get-value": "3.0.1",
     "has-own-deep": "^1.1.0",
     "set-value": "3.0.2",
-    "unset-value": "1.0.0"
+    "unset-value": "1.0.0",
+    "dequal": "1.0.0"
   },
   "devDependencies": {
     "@types/jest": "22.2.3",

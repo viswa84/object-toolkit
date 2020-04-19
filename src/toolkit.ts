@@ -3,6 +3,7 @@ import hasOwn from "has-own-deep";
 import merge from "deepmerge";
 import setter from "set-value";
 import deleter from "unset-value";
+import isEqual from "dequal";
 import { Dict, resolvePath } from "./utils";
 
 export function get<T extends Dict>(object: T, path: string, fallback?: any) {
@@ -15,7 +16,7 @@ export function set<T extends any>(object: T, path: string, value: any): any {
   return setter(object, paths, value);
 }
 
-export { merge };
+export { merge, isEqual };
 
 export function remove(object: object, path: string) {
   const paths = resolvePath(path).join(".");
