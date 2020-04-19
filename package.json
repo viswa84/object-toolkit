@@ -4,7 +4,6 @@
   "main": "dist/cjs",
   "module": "dist/esm",
   "types": "dist/types",
-  "typings": "dist/types",
   "author": "Segun Adebayo",
   "license": "MIT",
   "files": [
