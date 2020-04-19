@@ -4,7 +4,14 @@ import merge from "deepmerge";
 import setter from "set-value";
 import deleter from "unset-value";
 import isEqual from "dequal";
+import renamer from "deep-rename-keys";
 import { Dict, resolvePath } from "./utils";
+
+export type RenameKeysIterator = (key: string) => string;
+
+export function renameKeys<T extends Dict>(object: T, fn: RenameKeysIterator) {
+  return renamer(object, fn);
+}
 
 export function get<T extends Dict>(object: T, path: string, fallback?: any) {
   const paths = resolvePath(path).join(".");
@@ -15,8 +22,6 @@ export function set<T extends any>(object: T, path: string, value: any): any {
   const paths = resolvePath(path).join(".");
   return setter(object, paths, value);
 }
-
-export { merge, isEqual };
 
 export function remove(object: object, path: string) {
   const paths = resolvePath(path).join(".");
@@ -108,10 +113,12 @@ export function split<T extends Dict, K extends keyof T>(object: T, keys: K[]) {
   return [picked, omitted] as [{ [P in K]: T[P] }, Omit<T, K>];
 }
 
-export function keys<T>(object: T) {
+export function keys<T extends Dict>(object: T) {
   return (Object.keys(object) as unknown) as (keyof T)[];
 }
 
-export function entries<T>(object: T) {
+export function entries<T extends Dict>(object: T) {
   return Object.entries(object) as [keyof T, T[keyof T]][];
 }
+
+export { merge, isEqual };

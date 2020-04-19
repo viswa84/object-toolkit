@@ -27,6 +27,7 @@
     "deepmerge": "4.2.2",
     "get-value": "3.0.1",
     "has-own-deep": "^1.1.0",
+    "deep-rename-keys": "0.2.1",
     "set-value": "3.0.2",
     "unset-value": "1.0.0",
     "dequal": "1.0.0"
