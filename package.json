@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "yarn && yarn build",
+    "prepare": "yarn build",
     "prebuild": "rm -rf dist",
     "build": "concurrently yarn:build:*",
     "test": "jest",
