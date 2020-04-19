@@ -13,5 +13,6 @@
     "esModuleInterop": true,
     "outDir": "dist/esm"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/__tests__"]
 }

@@ -1,42 +1,18 @@
+import getter from "get-value";
+import hasOwn from "has-own-deep";
 import objectAssign from "object-assign";
-import { Dict, isObject, resolvePath } from "./utils";
+import setter from "set-value";
+import deleter from "unset-value";
+import { Dict, resolvePath } from "./utils";
 
 export function get<T extends Dict>(object: T, path: string, fallback?: any) {
-  const pathArray = resolvePath(path);
-
-  for (let index = 0; index < pathArray.length; index++) {
-    const path = pathArray[index] as keyof T;
-    //@ts-ignore
-    object = object ? object[path] : undefined;
-  }
-
-  return object === undefined ? fallback : object;
+  const paths = resolvePath(path).join(".");
+  return getter(object, paths, { default: fallback });
 }
 
-export function set(object: any, path: string, value: any): any {
-  if (!isObject(object)) return object;
-
-  const pathArray = resolvePath(path);
-
-  if (pathArray.length === 1) {
-    object[path] = value;
-    return object;
-  }
-
-  for (let index = 0; index < pathArray.length; index++) {
-    const path = pathArray[index];
-
-    if (!isObject(object[path])) {
-      object[path] = {};
-    }
-
-    if (index === pathArray.length - 1) {
-      object[path] = value;
-      break;
-    }
-
-    object = object[path];
-  }
+export function set<T extends any>(object: T, path: string, value: any): any {
+  const paths = resolvePath(path).join(".");
+  return setter(object, paths, value);
 }
 
 export function merge(...objects: any[]) {
@@ -48,48 +24,13 @@ export function merge(...objects: any[]) {
 }
 
 export function remove(object: object, path: string) {
-  if (!isObject(object) || typeof path !== "string") {
-    return;
-  }
-
-  const pathArray = resolvePath(path);
-
-  for (let index = 0; index < pathArray.length; index++) {
-    const path = pathArray[index] as keyof typeof object;
-
-    if (index === pathArray.length - 1) {
-      delete object[path];
-      return;
-    }
-
-    object = object[path];
-  }
+  const paths = resolvePath(path).join(".");
+  return deleter(object, paths);
 }
 
-export function has(object: object, path: string) {
-  if (!isObject(object) || typeof path !== "string") {
-    return false;
-  }
-
-  const pathArray = resolvePath(path);
-
-  if (pathArray.length === 0) {
-    return false;
-  }
-
-  for (let index = 0; index < pathArray.length; index++) {
-    const path = pathArray[index];
-
-    if (!(path in object)) {
-      return false;
-    }
-
-    if (isObject(object)) {
-      object = object[path];
-    }
-  }
-
-  return true;
+export function has(object: Dict, path: string) {
+  const paths = resolvePath(path).join(".");
+  return hasOwn(object, paths);
 }
 
 export type MapInterator<T> = (value: any, key: string, object: T) => void;

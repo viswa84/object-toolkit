@@ -21,15 +21,21 @@
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {
+    "@types/get-value": "3.0.0",
+    "@types/object-assign": "4.0.30",
+    "@types/set-value": "2.0.0",
+    "get-value": "3.0.1",
+    "has-own-deep": "^1.1.0",
     "object-assign": "4.1.1",
-    "@types/object-assign": "4.0.30"
+    "set-value": "3.0.2",
+    "unset-value": "1.0.0"
   },
   "devDependencies": {
-    "typescript": "^3.8.3",
-    "ts-jest": "25.3.1",
     "@types/jest": "22.2.3",
-    "jest": "25.2.7",
+    "concurrently": "5.1.0",
     "eslint": "6.8.0",
-    "concurrently": "5.1.0"
+    "jest": "25.2.7",
+    "ts-jest": "25.3.1",
+    "typescript": "^3.8.3"
   }
 }

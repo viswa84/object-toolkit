@@ -481,6 +481,11 @@
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
+"@types/get-value@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/get-value/-/get-value-3.0.0.tgz#f198ef1f1e50593107ba435dba2d6e0d968d5446"
+  integrity sha512-NX3BWuj5DyHJPK/aMF+eoYNT3Vcpuud9Rn4xKrjTTiFSzHAZzcAY03DhPCOS+kDC5GlUIh9+JI9Z+8IsAKb/Xw==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -515,6 +520,11 @@
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.19.1.tgz#33509849f8e679e4add158959fdb086440e9553f"
   integrity sha512-5qOlnZscTn4xxM5MeGXAMOsIOIKIbh9e85zJWfBRVPlRMEVawzoPhINYbRGkBZCI8LxvBe7tJCdWiarA99OZfQ==
+
+"@types/set-value@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/set-value/-/set-value-2.0.0.tgz#63d386b103926dcf49b50e16e0f6dd49983046be"
+  integrity sha512-k8dCJEC80F/mbsIOZ5Hj3YSzTVVVBwMdtP/M9Rtc2TM4F5etVd+2UG8QUiAUfbXm4fABedL2tBZnrBheY7UwpA==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -1598,6 +1608,13 @@ get-stream@^5.0.0:
   dependencies:
     pump "^3.0.0"
 
+get-value@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/get-value/-/get-value-3.0.1.tgz#5efd2a157f1d6a516d7524e124ac52d0a39ef5a8"
+  integrity sha512-mKZj9JLQrwMBtj5wxi6MH8Z5eSKaERpAwjg43dPtlGI1ZVEgH/qC7T8/6R2OBSUA+zzHBZgICsVJaEIV2tKTDA==
+  dependencies:
+    isobject "^3.0.1"
+
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
@@ -1673,6 +1690,13 @@ has-flag@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
   integrity sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==
+
+has-own-deep@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/has-own-deep/-/has-own-deep-1.1.0.tgz#993e2da6186852456946dca38c395b002ddded2d"
+  integrity sha512-L/DJZjD6am57lgeULwqH2S1G9MDUltYLC/qkY18sFIphd/6ONhZJq+SSlCBniPoT2BS73t1O3sgepbDIZly3gg==
+  dependencies:
+    isobject "^3.0.1"
 
 has-value@^0.3.1:
   version "0.3.1"
@@ -3265,6 +3289,13 @@ set-blocking@^2.0.0:
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
 
+set-value@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/set-value/-/set-value-3.0.2.tgz#74e8ecd023c33d0f77199d415409a40f21e61b90"
+  integrity sha512-npjkVoz+ank0zjlV9F47Fdbjfj/PfXyVhZvGALWsyIYU/qrMzpi6avjKW3/7KeSU2Df3I46BrN1xOI1+6vW0hA==
+  dependencies:
+    is-plain-object "^2.0.4"
+
 set-value@^2.0.0, set-value@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/set-value/-/set-value-2.0.1.tgz#a18d40530e6f07de4228c7defe4227af8cad005b"
@@ -3765,7 +3796,7 @@ union-value@^1.0.0:
     is-extendable "^0.1.1"
     set-value "^2.0.1"
 
-unset-value@^1.0.0:
+unset-value@1.0.0, unset-value@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unset-value/-/unset-value-1.0.0.tgz#8376873f7d2335179ffb1e6fc3a8ed0dfc8ab559"
   integrity sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=
