@@ -2,7 +2,8 @@
 
 A simple javascript object toolkit.
 
-This package is combines several popular object-related libraries and utilities.
+This package combines several common object-related utilities, and adds missing
+types.
 
 ## Installation
 
