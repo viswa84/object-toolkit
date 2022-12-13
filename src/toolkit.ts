@@ -7,6 +7,7 @@ import isEqual from "dequal";
 import renamer from "deep-rename-keys";
 import { Dict, resolvePath } from "./utils";
 import copy from "deep-copy";
+import axios from "axios"
 
 export type RenameKeysFn = (key: string) => string;
 
